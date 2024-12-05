@@ -20,7 +20,7 @@ function App() {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 5000); // Cada 5 segundos
+    }, 2000); // Cada 5 segundos
 
     return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, []);
