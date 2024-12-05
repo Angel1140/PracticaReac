@@ -1,42 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [data, setData] = useState([]); // Estado para almacenar los datos
-
-  // Función para simular la obtención de datos desde un servidor
-  const fetchData = () => {
-    const simulatedData = [
-      { id: 1, value: `Dato ${Math.floor(Math.random() * 100)}` },
-      { id: 2, value: `Dato ${Math.floor(Math.random() * 100)}` },
-      { id: 3, value: `Dato ${Math.floor(Math.random() * 100)}` },
-    ];
-    setData(simulatedData);
-  };
-
-  // Actualización automática cada 5 segundos
+  // Utilizamos useEffect para configurar la actualización automática
   useEffect(() => {
-    fetchData(); // Obtener datos al cargar el componente
-
     const interval = setInterval(() => {
-      fetchData();
-    }, 2000); // Cada 5 segundos
+      window.location.reload(); // Recarga la página cada 2 segundos
+    }, 2000); // Intervalo de 2 segundos
 
-    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+    return () => clearInterval(interval); // Limpiar intervalo al desmontar
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Actualización Automática de Datos</h1>
-        <ul>
-          {data.map((item) => (
-            <li key={item.id}>{item.value}</li>
-          ))}
-        </ul>
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
       </header>
     </div>
   );
 }
 
 export default App;
+
