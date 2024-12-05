@@ -7,7 +7,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       window.location.reload(); // Recarga la página cada 2 segundos
-    }, 2000); // Intervalo de 2 segundos
+    }, 1000); // Intervalo de 1 segundos
 
     return () => clearInterval(interval); // Limpiar intervalo al desmontar
   }, []);
