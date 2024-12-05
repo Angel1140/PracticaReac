@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  // Utilizamos useEffect para configurar la actualización automática
+  // Recargar la página cada 2 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      window.location.reload(); // Recarga la página cada 2 segundos
-    }, 1000); // Intervalo de 1 segundos
+      window.location.reload(); // Recargar la página cada 2 segundos
+    }, 2000); // Intervalo de 2 segundos
 
-    return () => clearInterval(interval); // Limpiar intervalo al desmontar
+    return () => clearInterval(interval); // Limpiar el intervalo cuando se desmonta el componente
   }, []);
 
   return (
@@ -31,6 +31,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
-
